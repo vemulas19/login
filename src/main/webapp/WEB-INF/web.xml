@@ -1,0 +1,15 @@
+<web-app>
+
+	<servlet>
+		<servlet-name>kamal</servlet-name>
+		<servlet-class>com.login.Success</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>kamal</servlet-name>
+		<url-pattern>/loading</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>
