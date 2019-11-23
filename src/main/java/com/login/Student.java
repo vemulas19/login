@@ -4,7 +4,7 @@ public class Student {
 public static void main(String[] args) {
 	System.out.println("student details");
 	int mul = mulitiplication(10, 20);
-	int mul2 = mulitiplication(10, 200);
+	int mul2 = mulitiplication(10, 200); 
 	System.out.println("Multiplication is : " + mul);
 }
 
