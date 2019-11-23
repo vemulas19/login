@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="loading">
+<form action="loading" method = "post">
         
 FirstName:<input type="text"name="name1"/>
 LastName:<input type="text"name="name2"/></br>
