@@ -1,6 +1,7 @@
 package com.login;
 
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
@@ -39,6 +40,14 @@ public class OrderManagementService {
 		else
 			System.out.println("Entered mail is invalid!!");
 		
+
+		String mobile = user.getMobile();
+		boolean isValidMbl = isValidMobile(mobile);
+		if(isValidMbl)
+			System.out.println("Entered mobile number is Valid!!");
+		else
+			System.out.println("Entered mobile number is Invalid!!");
+
 //		fetching updated menu data to show in view page
 
 		List<String> fetchMenu = dao.fetchMenu();
@@ -58,6 +67,12 @@ public class OrderManagementService {
         if (email == null) 
             return false; 
         return pat.matcher(email).matches(); 
+    }
+	public static boolean isValidMobile(String s) 
+    { 
+        Pattern p = Pattern.compile("(0/91)?[6-9][0-9]{9}"); 
+        Matcher m = p.matcher(s); 
+        return m.matches();
     } 
 	
 	public String editView(int itId) {
