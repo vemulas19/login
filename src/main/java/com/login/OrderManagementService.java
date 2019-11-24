@@ -14,6 +14,7 @@ public class OrderManagementService {
 	final static Logger logger = Logger.getLogger(OrderManagementService.class);
 	
 	public String deleteItem(int itemId) {
+		System.out.println("Helo!!");
 		logger.info("executing OrderManagementService :: deleteItem!!");
 		int result = dao.deleteItem(itemId);
 
