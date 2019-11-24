@@ -1,6 +1,7 @@
 package com.login;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
@@ -31,6 +32,12 @@ public class OrderManagementService {
 	
 	public String updateItem(User user) {
 		logger.info("executing OrderManagementService :: updateItem");
+		String mailId = user.getMailId();
+		boolean isValidMailId = isValidMail(mailId);
+		if(isValidMailId)
+			System.out.println("Entered mail is valid!!");
+		else
+			System.out.println("Entered mail is invalid!!");
 		
 //		fetching updated menu data to show in view page
 
@@ -39,6 +46,19 @@ public class OrderManagementService {
 		logger.info("exit OrderManagementService :: updateItem");
 		return "menu";
 	}
+	
+	public static boolean isValidMail(String email) 
+    { 
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+                              
+        Pattern pat = Pattern.compile(emailRegex); 
+        if (email == null) 
+            return false; 
+        return pat.matcher(email).matches(); 
+    } 
 	
 	public String editView(int itId) {
 		logger.info("executing OrdermangementService :: editView");
