@@ -33,12 +33,21 @@ public class OrderManagementService {
 	
 	public String updateItem(User user) {
 		logger.info("executing OrderManagementService :: updateItem");
+		String mailId = user.getMailId();
+		boolean isValidMailId = isValidMail(mailId);
+		if(isValidMailId)
+			System.out.println("Entered mail is valid!!");
+		else
+			System.out.println("Entered mail is invalid!!");
+		
+
 		String mobile = user.getMobile();
 		boolean isValidMbl = isValidMobile(mobile);
 		if(isValidMbl)
 			System.out.println("Entered mobile number is Valid!!");
 		else
 			System.out.println("Entered mobile number is Invalid!!");
+
 //		fetching updated menu data to show in view page
 
 		List<String> fetchMenu = dao.fetchMenu();
@@ -47,6 +56,18 @@ public class OrderManagementService {
 		return "menu";
 	}
 	
+	public static boolean isValidMail(String email) 
+    { 
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+                              
+        Pattern pat = Pattern.compile(emailRegex); 
+        if (email == null) 
+            return false; 
+        return pat.matcher(email).matches(); 
+    }
 	public static boolean isValidMobile(String s) 
     { 
         Pattern p = Pattern.compile("(0/91)?[6-9][0-9]{9}"); 
