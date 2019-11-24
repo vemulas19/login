@@ -29,7 +29,7 @@ public class OrderManagementService {
 		return "menu";
 	}
 	
-	public String updateItem() {
+	public String updateItem(User user) {
 		logger.info("executing OrderManagementService :: updateItem");
 		
 //		fetching updated menu data to show in view page
